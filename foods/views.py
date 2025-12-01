@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from .models import FoodItem
 
 def index(request):
-    return HttpResponse("<h1>Hello, world. You're at the foods index.</h1>")
+    food = FoodItem.objects.all()
+    
+    context = {
+        'item':food
+    }
+    return render(request,'foods/index.html', context)
 
-def item(request):
-    return HttpResponse("<h1>This is a food item page.</h1>")
+def item(request, item_id):
+    id = item_id
+    return render(request, id)
 
