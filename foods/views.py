@@ -11,6 +11,9 @@ def index(request):
     return render(request,'foods/index.html', context)
 
 def item(request, item_id):
-    id = item_id
-    return render(request, id)
+    item = FoodItem.objects.get(id=item_id)
+    context = {
+        'item': item
+    }
+    return render(request, 'foods/item.html', context)
 
