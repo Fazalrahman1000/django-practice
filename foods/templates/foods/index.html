@@ -1,18 +1,34 @@
-{% load static %}
+{% extends 'foods/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foods</title>
-    <link rel="stylesheet" href="{% static 'foods/style.css' %}">
 </head>
 <body>
+{% block body %}
+
+
+
     {% for i in item %}
-<ul>
+
+<div class="row">
+<div class="col-md-3 offset-md-2">
+<img src="{{i.item_image}}" alt="" class="card" height="150px">
+</div>
+<div class="col-md-4">
+
+</div>
+<div class="col-md-2">
+
+</div>
+</div>
+
+
+<!-- <ul>
     <a href="{% url 'foods:item' i.id %}"><li>{{i.item_name}}</li></a>
-</ul>
+</ul> -->
 {% endfor %}
+{% endblock %}
 </body>
 </html>
 
