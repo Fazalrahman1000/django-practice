@@ -8,7 +8,6 @@
 {% block body %}
 
 
-
     {% for i in item %}
 
 <div class="row">
@@ -21,13 +20,12 @@
 </div>
 <div class="col-md-2">
 <a href="{% url 'foods:item' i.id %}" class="btn btn-success">Details</a>
+<a href="{% url 'foods:update_item' i.id %}" class="btn btn-success">Edit</a>
+<a href="{% url 'foods:delete_item' i.id %}" class="btn btn-success">Delete</a>
+
 </div>
 </div>
 
-
-<!-- <ul>
-    <a href="{% url 'foods:item' i.id %}"><li>{{i.item_name}}</li></a>
-</ul> -->
 {% endfor %}
 {% endblock %}
 </body>
