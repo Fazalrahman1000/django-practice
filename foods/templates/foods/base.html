@@ -20,6 +20,11 @@
         </div>
 
     </nav>
+    {% if messages %}
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+    {% endif %}
 
     {% block body %}
 
