@@ -128,4 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'foods:index'
 
+LOGIN_URL = 'user:login'
+
 LOGOUT_REDIRECT_URL = 'user:login'
