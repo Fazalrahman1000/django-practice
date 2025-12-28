@@ -10,7 +10,7 @@ def create_user(request):
             user = form.save()
             username = form.cleaned_data.get('username')
             message = messages.success(request, f"Welcome {username} to our website, your account is created")
-            return redirect('foods:index')
+            return redirect('user:login')
     else:
         form = RegisterUser()
     return render(request, 'users/create_user.html', {'form':form})
