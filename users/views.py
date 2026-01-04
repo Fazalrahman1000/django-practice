@@ -20,3 +20,4 @@ def create_user(request):
 def profilepage(request):
 
     return render(request, 'users/profile.html')
+

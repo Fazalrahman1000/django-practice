@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from .models import FoodItem
 from .forms import FoodItemForm
 
@@ -11,12 +12,26 @@ def index(request):
     }
     return render(request,'foods/index.html', context)
 
+class IndexClassView(ListView):
+    model = FoodItem
+    template_name = 'foods/index.html'
+    context_object_name = 'item'
+
+    
+
 def item(request, item_id):
     item = FoodItem.objects.get(id=item_id)
     context = {
         'item': item
     }
     return render(request, 'foods/item.html', context)
+
+
+class DetailsClassView(DetailView):
+    model = FoodItem
+    template_name  = 'foods/item.html'
+    
+
 
 def create_item(request):
     form = FoodItemForm(request.POST or None)
